@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Blogger Importer Extended\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-29 22:35+0100\n"
+"PO-Revision-Date: 2015-01-29 22:35+0100\n"
+"Last-Translator: Yuri Farina <me@yurifarina.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../templates/authorize.php:3
+msgid "Blogger Importer Extended <i>(BIE for friends)</i> needs to access into your Blogger blog.<br>To make it possible, you need to login with the Google account connected with your Blogger blog and complete the authorization process."
+msgstr "Blogger Importer Extended <i>(BIE per gli amici)</i> ha bisogno di accedere al tuo blog Blogger.<br>Per permetterglielo, devi effettuare il login con l'account Google connesso al tuo blog Blogger e completare il processo di autorizzazione."
+
+#: ../templates/authorize.php:4
+msgid "Firstly, click on <b>the button below</b>!"
+msgstr "Prima di tutto, clicca sul <b>pulsante sottostante</b>!"
+
+#: ../templates/authorize.php:5
+msgid "Ok, let's go!"
+msgstr "Ok, andiamo!"
+
+#: ../templates/blogs.php:33
+msgid "Remove authorization"
+msgstr "Rimuovi autorizzazione"
+
+#: ../templates/blogs.php:38
+msgid "<b>The importer has stopped unexpectedly!</b><br>But&hellip; don't worry! It will restart automatically in <span id=\"timeout\">-</span> seconds."
+msgstr "<b>L'importazione si è bloccata inaspettatamente!</b><br>Ma&hellip; niente paura! Si riavvierà automaticamente fra <span id=\"timeout\">-</span> secondi."
+
+#: ../templates/blogs.php:42
+msgid "Select a blog"
+msgstr "Seleziona un blog"
+
+#: ../templates/blogs.php:52
+msgid "Continue"
+msgstr "Continua"
+
+#: ../templates/blogs.php:52
+msgid "Start Import"
+msgstr "Avvia l'importazione"
+
+#: ../templates/blogs.php:53
+msgid "Convert formatting"
+msgstr "Converti la formattazione"
+
+#: ../templates/blogs.php:54
+msgid "Preserve slugs"
+msgstr "Mantieni gli slug"
+
+#: ../templates/blogs.php:72
+msgid "This value may be inaccurate because emptied comments can't be imported"
+msgstr "Questo valore potrebbe non essere preciso perché i commenti rimossi non possono essere importati"
+
+#: ../templates/blogs.php:95
+msgid "Nearly there!"
+msgstr "Ci siamo quasi!"
+
+#: ../templates/blogs.php:96
+msgid "Now, you need to assign the Blogger authors to the WordPress users:"
+msgstr "Ora, devi associare gli autori Blogger ai rispettivi utenti WordPress:"
+
+#: ../templates/blogs.php:101
+msgid "Select an existing user"
+msgstr "Seleziona un utente esistente"
+
+#: ../templates/blogs.php:103
+msgid "Create a new one"
+msgstr "Creane uno nuovo"
+
+#: ../templates/blogs.php:109
+msgid "Assign authors"
+msgstr "Associa gli autori"
+
+#: ../templates/blogs.php:111
+msgid "Skip"
+msgstr "Salta"
+
+#: ../templates/blogs.php:117
+msgid "All done!"
+msgstr "Fatto!"
+
+#: ../templates/blogs.php:120
+msgid "Hey!"
+msgstr "Hei!"
+
+#: ../templates/blogs.php:121
+msgid "If this plugin was useful to you, consider the hypothesis of a donation.<br><b>You'd be a great help!</b>"
+msgstr "Se questo plugin ti è stato utile, considera l'ipotesi di una donazione.<br><b>Saresti di grande aiuto!</b>"
+
+#: ../templates/blogs.php:137
+msgid "You have no blogs"
+msgstr "Non hai blog"
+
+#: ../templates/blogs.php:188
+msgid "<b>Note:</b> if a new user is created, a new password will be randomly generated, manually changing the new user’s details will be necessary."
+msgstr "<b>Nota</b> Se viene creato un nuovo utente, una nuova password viene generata casualmente, avrai bisogno di intervenire manualmente per compilare le informazioni mancanti."
+
+#: ../templates/blogs.php:352
+msgid "The import isn't over yet, if you proceed will stop."
+msgstr "L'iportazione non è ancora terminata, se procedi verrà interrotta."
+
+#: ../templates/error.php:4
+msgid "The uploads directory is not writable by WordPress, so BIE can't import images.<br>You must fix this issue before proceed, this could be helpful:"
+msgstr "La directory uploads non è scrivibile da WordPress, quindi BIE non può importare le immagini.<br>Devi risolvere il problema per procedere, questo può essere di aiuto:"
+
+#: ../templates/error.php:5
+msgid "Done, check again!"
+msgstr "Fatto, controlla di nuovo!"
+
+#: ../includes/core.php:45
+msgid "Import your Blogger blog to WordPress."
+msgstr "Importa il tuo blog Blogger in WordPress."
+
