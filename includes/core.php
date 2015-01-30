@@ -73,7 +73,7 @@
                         ));
 
                         if(property_exists($response, 'status') && $response->status == 'done') {
-                            $this->client->reset($redirect);
+                            $this->client->reset();
                         }
                     }
 

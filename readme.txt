@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=me%40
 Tags: importer, blogger
 Requires at least: 3.1
 Tested up to: 4.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,7 +29,7 @@ Blogger Importer Extended can:
 ***Notes***
 
 1. *Due to Google APIs daily quota limitations the importer can be unavailable, try later.*
-2. *Due to Google policies, Blogger API v3 are only accessible through manually approved web services, so, any imported content (posts, pages, comments, ecc...) go through our web service, only public contents are processed, no private data, no anything else.*
+2. *Due to Google policies, Blogger API v3 are only accessible through manually approved web services, so, any imported content (posts, pages, comments, etc...) go through our web service, only public contents are processed, no private data, no anything else.*
 
 == Installation ==
 
@@ -54,3 +54,13 @@ The importer can stop for several reasons, most frequently reasons are:
 3. Importing options
 4. Importing process
 5. Author assignment
+
+== Changelog ==
+
+= 1.1 =
+* Fix for posts without slug
+
+== Upgrade Notice ==
+
+= 1.1 =
+If some posts don't have slug, using Blogger 301 Redirect, the home redirection fails.

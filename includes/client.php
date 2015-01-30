@@ -55,7 +55,7 @@
             return $response;
         }
 
-        public function reset($redirect)
+        public function reset()
         {
             $this->token = null;
             delete_option(self::TOKEN);

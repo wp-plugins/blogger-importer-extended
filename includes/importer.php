@@ -124,9 +124,12 @@
                         add_post_meta($post_id, self::PREFIX . 'bid', $this->blog_id);
                         add_post_meta($post_id, self::PREFIX . 'blog', $permalink['host']);
                         add_post_meta($post_id, self::PREFIX . 'id', $post->id);
-                        add_post_meta($post_id, self::PREFIX . 'permalink', $permalink['path']);
                         add_post_meta($post_id, self::PREFIX . 'author', $post->author->id);
                         add_post_meta($post_id, self::PREFIX . 'comments', $post->replies->totalItems);
+
+                        if($permalink['path'] != '/') {
+                            add_post_meta($post_id, self::PREFIX . 'permalink', $permalink['path']);
+                        }
 
                         if(property_exists($post, 'images') && count($post->images)) {
                             add_post_meta($post_id, self::PREFIX . 'thumbnail', $post->images[0]->url);
