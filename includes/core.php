@@ -7,10 +7,12 @@
         const ID = 'bie_id';
 
         private $client;
+        private $bootstrap;
 
-        public function __construct()
+        public function __construct($bootstrap)
         {
             $this->client = new BIEClient();
+            $this->bootstrap = $bootstrap;
         }
 
         static public function install()
@@ -32,7 +34,10 @@
             add_action('wp_ajax_bie_import', array($this, 'import'));
             add_action('wp_ajax_bie_status', array($this, 'status'));
             add_action('wp_ajax_bie_authors', array($this, 'authors'));
+            add_action('wp_ajax_bie_unlock', array($this, 'unlock'));
             add_action('wp_ajax_bie_reset', array($this, 'reset'));
+
+            add_filter('plugin_action_links_' . plugin_basename($this->bootstrap), array($this, 'links'));
         }
 
         public function internationalize()
@@ -43,6 +48,13 @@
         public function register()
         {
             register_importer(self::SLUG, self::NAME, __('Import your Blogger blog to WordPress.', self::SLUG), array($this, 'run'));
+        }
+
+        public function links($links)
+        {
+            $links[] = '<a href="' . admin_url('admin.php?import=' . self::SLUG) . '">' . __('Start!', self::SLUG) . '</a>';
+            
+            return $links;
         }
 
         public function run()
@@ -170,6 +182,14 @@
                         WHERE `m`.`meta_key` = '" . BIEImporter::PREFIX . "author'
                           AND `m`.`meta_value` = %s", $user_id, $user->data->display_name, $author['blogger_id']));
             }
+
+            die();
+        }
+
+        public function unlock()
+        {
+            $importer = new BIEImporter($_POST['blog_id']);
+            $importer->unlock();
 
             die();
         }

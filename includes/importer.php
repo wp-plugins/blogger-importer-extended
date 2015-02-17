@@ -58,6 +58,12 @@
         	return $this->status;
         }
 
+        public function unlock()
+        {
+            $this->status['running'] = false;
+            $this->store();
+        }
+
         public function import($options)
         {
             if(!array_key_exists('options', $this->status)) {
@@ -109,7 +115,7 @@
                     }
 
                     $post_id = wp_insert_post(array(
-                        'post_content' => $this->status['options']['convert_formatting'] ? strip_tags($post->content, '<div><b><strong><i><em><u><ins><s><a><br><img><table><thead><tbody><tfoot><tr><td><th>') : $post->content,
+                        'post_content' => $this->status['options']['convert_formatting'] ? strip_tags($post->content, '<div><b><strong><i><em><u><ins><s><a><br><img><table><thead><tbody><tfoot><tr><td><th><iframe>') : $post->content,
                         'post_name' => $this->status['options']['preserve_slugs'] ? rtrim(basename($post->url), '.html') : '',
                         'post_title' => $post->title,
                         'post_status' => property_exists($post, 'status') ? $statuses[strtolower($post->status)] : 'publish',
@@ -168,7 +174,7 @@
             ));
 
             $statuses = array(
-                'emptied' => '0',
+                'emptied' => 'trash',
                 'live' => '1',
                 'pending' => '0',
                 'spam' => 'spam',
