@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=me%40
 Tags: importer, blogger
 Requires at least: 3.1
 Tested up to: 4.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,6 +18,7 @@ Blogger Importer Extended can:
 
 * Import posts
 * Import pages
+* Import tags
 * Import comments
 * Import images
 * Import links
@@ -26,8 +27,7 @@ Blogger Importer Extended can:
 
 **Hey!** This plugin is pretty young and some wicked bugs can hide in the shadow, if you find them, let me know! :)
 
-***Notes***
-
+= Notes =
 1. *Due to Google APIs daily quota limitations the importer can be unavailable, try later.*
 2. *Due to Google policies, Blogger API v3 are only accessible through manually approved web services, so, any imported content (posts, pages, comments, etc...) go through our web service, only public contents are processed, no private data, no anything else.*
 
@@ -40,10 +40,9 @@ Blogger Importer Extended can:
 == Frequently Asked Questions ==
 
 = The importer stopped unexpectedly, why? =
-
 The importer can stop for several reasons, most frequently reasons are:
 
-* Restart: when you refresh the browser page 2 or more import processes can be together actives, so, BIE waits for the first one finish its work.
+* Restart: when you refresh the browser page 2 or more import processes can be together active, so, BIE waits for the first one finish its work.
 * Timeout: the browser, a proxy, or something else, breaks the import process for some reason, usually a timeout.
 * Quota exceeded: BIE uses the Google Blogger APIs, these grant a limited number of requests per day and per second, if the quota is exceeded, the importer stops.
 
@@ -57,10 +56,17 @@ The importer can stop for several reasons, most frequently reasons are:
 
 == Changelog ==
 
+= 1.2 =
+* Fix for alert loop
+* Workaround for imprecision in denormalized counters
+
 = 1.1 =
 * Fix for posts without slug
 
 == Upgrade Notice ==
+
+= 1.2 =
+Now, when the countdown ends, the importer shall be forced to restart.
 
 = 1.1 =
 If some posts don't have slug, using Blogger 301 Redirect, the home redirection fails.

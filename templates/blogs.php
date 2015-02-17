@@ -69,8 +69,7 @@
                             <div class="filename original">Pages</div>
                         </div>
                         <div class="comments media-item">
-                            <div class="progress" title="<?php _e("This value may be inaccurate because emptied comments can't be imported", BIECore::SLUG); ?>">
-                                <span class="dashicons dashicons-editor-help"></span>
+                            <div class="progress">
                                 <div class="percent"><span class="imported">0</span> / <span class="total">?</span></div>
                                 <div class="bar" style="width: 0%"></div>
                             </div>
@@ -144,6 +143,7 @@
             var running = false;
             var users = <?php echo json_encode($users); ?>;
             var default_delay = 180;
+            var minimum_delay = 60;
 
             var import_completed = true;
             var import_interval = undefined;
@@ -240,15 +240,28 @@
                 var timeout_interval = undefined;
                 var $timeout = $('#timeout');
                 var $restart = $('#restart');
+                if(delay < minimum_delay) {
+                    delay = minimum_delay;
+                }
                 $timeout.text(delay);
                 $restart.fadeIn(function() {
                     timeout_interval = setInterval(function() {
                         var timeout = parseInt($timeout.text());
                         if(!timeout) {
                             clearInterval(timeout_interval);
-                            $restart.fadeOut(function() {
-                                import_completed = true;
-                                cycle_import(blog_id, options);
+                            $.ajax({
+                                url: '<?php echo admin_url("admin-ajax.php"); ?>',
+                                type: 'POST',
+                                data: {
+                                    action: 'bie_unlock',
+                                    blog_id: blog_id
+                                },
+                                complete: function() {
+                                    $restart.fadeOut(function() {
+                                        import_completed = true;
+                                        cycle_import(blog_id, options);
+                                    });
+                                }
                             });
                         } else {
                             $timeout.text(--timeout);
@@ -259,6 +272,7 @@
 
             var update_progress = function(status) {
                 var $blog = $('#blogs .blog.active');
+
                 $blog.find('.posts .imported').text(status.posts_imported);
                 $blog.find('.posts .bar').css('width', parseInt(parseInt($blog.find('.posts .imported').text()) * 100 / parseInt($blog.find('.posts .total').text())) + '%');
                 $blog.find('.pages .imported').text(status.pages_imported);
@@ -272,6 +286,22 @@
                 $blog.find('.links .total').text(status.links_total);
                 $blog.find('.links .imported').text(status.links_imported);
                 $blog.find('.links .bar').css('width', parseInt(parseInt($blog.find('.links .imported').text()) * 100 / parseInt($blog.find('.links .total').text())) + '%');
+
+                if(status.posts_imported > parseInt($blog.find('.posts .total').text())) {
+                    $blog.find('.posts .total').text(status.posts_imported);
+                }
+                if(status.pages_imported > parseInt($blog.find('.pages .total').text())) {
+                    $blog.find('.pages .total').text(status.pages_imported);
+                }
+                if(status.comments_imported > parseInt($blog.find('.comments .total').text())) {
+                    $blog.find('.comments .total').text(status.comments_imported);
+                }
+                if(status.images_imported > parseInt($blog.find('.images .total').text())) {
+                    $blog.find('.images .total').text(status.images_imported);
+                }
+                if(status.links_imported > parseInt($blog.find('.links .total').text())) {
+                    $blog.find('.links .total').text(status.links_imported);
+                }
             };
 
             $('#blogs .blog').on('click', function(event) {
@@ -349,7 +379,7 @@
 
             $(window).bind('beforeunload', function() {
                 if(running) {
-                    return "<?php echo addslashes(__("The import isn't over yet, if you proceed will stop.", BIECore::SLUG)); ?>";
+                    return "<?php echo addslashes(__('The import isn\'t over yet, if you proceed will stop.', BIECore::SLUG)); ?>";
                 }
             });
 
