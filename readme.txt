@@ -3,12 +3,12 @@ Contributors: yurifari
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=me%40yurifarina%2ecom&item_name=Blogger%20Importer%20Extended&currency_code=EUR
 Tags: importer, blogger
 Requires at least: 3.1
-Tested up to: 4.1
-Stable tag: 1.2
+Tested up to: 4.1.1
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Import posts, pages, comments, images and links from your Blogger blog.
+Import posts, pages, tags, comments, images and links from your Blogger blog.
 
 == Description ==
 
@@ -55,6 +55,9 @@ The importer can stop for several reasons, most frequently reasons are:
 5. Author assignment
 
 == Changelog ==
+
+= 1.2.1 =
+* Fix for unexpected timeout
 
 = 1.2 =
 * Fix for alert loop
