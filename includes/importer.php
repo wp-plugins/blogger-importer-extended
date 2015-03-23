@@ -187,7 +187,7 @@
                     }
 
                     $comment_id = wp_insert_comment(array(
-                        'comment_post_ID' => $this->find_post($comment->post->id, $type),
+                        'comment_post_ID' => $this->find_post($comment->post->id),
                         'comment_author' => $comment->author->displayName,
                         'comment_author_url' => property_exists($comment->author, 'url') ? $comment->author->url : '',
                         'comment_content' => $comment->content,

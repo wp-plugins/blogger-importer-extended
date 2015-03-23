@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=me%40
 Tags: importer, blogger
 Requires at least: 3.1
 Tested up to: 4.1.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,9 @@ The importer can stop for several reasons, most frequently reasons are:
 5. Author assignment
 
 == Changelog ==
+
+= 1.2.2 =
+* Fix for page comments
 
 = 1.2.1 =
 * Fix for unexpected timeout
