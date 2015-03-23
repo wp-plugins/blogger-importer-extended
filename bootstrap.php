@@ -5,7 +5,7 @@
         Plugin URI: http://wordpress.org/plugins/blogger-importer-extended/
         Description: Migrates your Blogger blog to WordPress.
         Author: Yuri Farina
-        Version: 1.2
+        Version: 1.2.2
         Author URI: http://www.yurifarina.com/
         Text Domain: blogger-importer-extended
     */

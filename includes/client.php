@@ -30,6 +30,7 @@
 
             $response = wp_remote_post($url, array(
                 'body' => $params,
+                'timeout' => 0,
             ));
 
             if(is_wp_error($response)) {
