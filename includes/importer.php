@@ -108,6 +108,40 @@
                 'scheduled' => 'future',
             );
 
+            $good_tags = array(
+                'a',
+                'b',
+                'blockquote',
+                'br',
+                'div',
+                'em',
+                'h1',
+                'h2',
+                'h3',
+                'h4',
+                'h5',
+                'h6',
+                'i',
+                'iframe',
+                'img',
+                'ins',
+                'li',
+                'ol',
+                'pre',
+                's',
+                'strike',
+                'strong',
+                'table',
+                'tbody',
+                'td',
+                'tfoot',
+                'th',
+                'thead',
+                'tr',
+                'u',
+                'ul',
+            );
+
             if(property_exists($posts, 'items')) {
                 foreach($posts->items as $post) {
                     if($this->find_post($post->id, $type)) {
@@ -115,7 +149,7 @@
                     }
 
                     $post_id = wp_insert_post(array(
-                        'post_content' => $this->status['options']['convert_formatting'] ? strip_tags($post->content, '<div><b><strong><i><em><u><ins><s><a><br><img><table><thead><tbody><tfoot><tr><td><th><iframe>') : $post->content,
+                        'post_content' => $this->status['options']['convert_formatting'] ? strip_tags($post->content, '<' . implode('><', $good_tags) . '>') : $post->content,
                         'post_name' => $this->status['options']['preserve_slugs'] ? rtrim(basename($post->url), '.html') : '',
                         'post_title' => $post->title,
                         'post_status' => property_exists($post, 'status') ? $statuses[strtolower($post->status)] : 'publish',
