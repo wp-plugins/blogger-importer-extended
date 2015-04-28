@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=me%40
 Tags: importer, blogger
 Requires at least: 3.1
 Tested up to: 4.2
-Stable tag: 1.2.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,8 +24,6 @@ Blogger Importer Extended can:
 * Import links
 * Convert formatting
 * Preserve slugs
-
-**Hey!** This plugin is pretty young and some wicked bugs can hide in the shadow, if you find them, let me know! :)
 
 = Notes =
 1. *Due to Google APIs daily quota limitations the importer can be unavailable, try later.*
@@ -56,6 +54,9 @@ The importer can stop for several reasons, most frequently reasons are:
 
 == Changelog ==
 
+= 1.3 =
+* Improvements on formatting conversion
+
 = 1.2.2 =
 * Fix for page comments
 
@@ -70,6 +71,9 @@ The importer can stop for several reasons, most frequently reasons are:
 * Fix for posts without slug
 
 == Upgrade Notice ==
+
+= 1.3 =
+Now, the plugin also imports tags for headings and lists.
 
 = 1.2 =
 Now, when the countdown ends, the importer shall be forced to restart.
